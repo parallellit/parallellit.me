@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>Reading Mode</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- CSS
+  ================================================== -->
+  <link rel="stylesheet" href="stylesheets/base.css">
+  <link rel="stylesheet" href="stylesheets/skeleton.css">
+  <link rel="stylesheet" href="stylesheets/layout.css">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+  <!-- Favicons
+  ================================================== -->
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>
+  <script src='http://ricostacruz.com/jquery.transit/jquery.transit.min.js'></script>
+  <!-- <script src="js/script2.js"></script> -->
+  <!-- <script src="js/read_files.js"></script> -->
+  <script src="js/borges.js"></script>
+</head>
+
+<body>
+  <!-- Primary Page Layout
+  ================================================== -->
+  <div class="container">
+    <div class="sixteen columns">
+      <h5 style="padding-top:10px;"><a href="/~villanue">Home</a>          Reading Mode</h5>
+      <hr />
+    </div>
+    <div class="one-third column" style="opacity:.8;">
+      <h6 id="orig-label">Main Text</h6><br>
+        <div id="main-text" style="height:500px;overflow:auto;">
+          <br>
+        </div>
+   </div>
+   <div id="col-2" class="one-third column">
+    <h6>Line Translations</h6><br>
+    <div style="border: 1px solid;border-radius: 3px; background:#CCC; padding: 5px;width:100%;">
+      <strong style="font-size: 70%;">LINE FROM MAIN TEXT</strong><br>
+      <div id="original-line">
+      </div>
+    </div>
+    <div id="sample-sentences" style="width: 100%;padding-top:10px;display:none;">
+    </div>
+  </div>
+  <div class="one-third column">
+    <h6>Alternate Translations</h6><br> 
+    <div id="end-pane" style="display:none;background:#F1F1F1;padding:10px;width:100%;border-radius:3px;height:500px;overflow-y:auto;overflow-x:hidden;">
+    </div>
+  </div>
+</div>
+</body>
+</html>
