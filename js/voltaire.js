@@ -53,10 +53,10 @@ function assignEndSentenceId(index) {
 }
 
 function readTranslation(filename, index) {
+	setTimeout(loadPreview(index), 0);
+	console.log('readTranslation(' + index + ')');
+	
 	jQuery.get(filename, function(data) {
-		setTimeout(loadPreview(index), 0);
-		console.log('readTranslation(' + index + ')');
-		
 		snt.push(data.replace(/([^.!?]*[^.!?\s][.!?]['"]?)(\s|$)/g, 
 	   	'<span class="end-sentence">$1</span>$2'));
 	   	// empty divs
@@ -74,10 +74,8 @@ function readTranslation(filename, index) {
 				console.log('id: ' + id);
 			});
 		});
-		// console.log(full_translation_id + ': ' + $(full_translation_id).html());
-		
-		return; 
 	});
+	return; 
 }
 
 $(document).on('click','.main-text_preview', function() {
