@@ -15,44 +15,6 @@ $(document).ready(function() {
 	}
 });
 
-function updateMainText(index) {
-	var end_sentence_id = '#' + index + '_end-sentence_0';
-	// console.log('updateMainText(' + index + ')');
-	
-	var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).text() + '</div>';
-	// console.log('line: ' + line);
-	$('#main-text').append(line);
-	// return line; 
-	// console.log('#main-text: ' + $('#main-text').html());
-}
-
-function loadPreview (index) {
-	setTimeout(updateMainText(index), 0);
-	console.log('loadPreview(' + index + ')').done;
-	
-	// var end_sentence_id = '#' + index + '_end-sentence_0';
-	// console.log('END: ' + end_sentence_id);
-	// console.log('val: ' + $(end_sentence_id).html());
-	// return; 
-}
-
-function assignEndSentenceId(index) {
-	setTimeout(loadPreview(index), 0);
-	
-	console.log('assignEndSentenceId(' + index + ')');
-	console.log('#end-pane2: ' + $('#end-pane').html());
-	
-	// $('.end-sentence').each(function(j) {
-	// 	var my_class = "end-sentence_" + j; // assumes 1:1 matching for all, so a class looks like end-sentence_0
-	// 	var id = index + "_" + my_class; 
-	// 	// Give the ID to the div
-	// 	$(this).attr("class", my_class);
-	// 	$(this).attr("id", id);
-	// 	console.log('id: ' + id);
-	// });
-	// return; 
-}
-
 function readTranslation(filename, index) {
 	// setTimeout(loadPreview(index), 0);
 	jQuery.get(filename, function(data) {
@@ -68,6 +30,11 @@ function readTranslation(filename, index) {
 		$(full_translation_id).html(snt[index]);
 	}).done(function(e) {
 		$('.end-sentence').each(function(j) {
+			if (j == 1) {
+				var end_sentence_id = '#' + index + '_end-sentence_0';
+				var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).text() + '</div>';
+				$('#main-text').append(line);
+			}
 			var my_class = "end-sentence_" + j; // assumes 1:1 matching for all, so a class looks like end-sentence_0
 			var id = index + "_" + my_class; 
 			// Give the ID to the div
@@ -75,11 +42,9 @@ function readTranslation(filename, index) {
 			$(this).attr("id", id);
 			console.log('id: ' + id);
 		});
-	}).done(function(e) {
-		var end_sentence_id = '#' + index + '_end-sentence_0';
-		var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).text() + '</div>';
-		$('#main-text').append(line);
 	});
+	// .done(function(e) {
+	// });
 }
 
 $(document).on('click','.main-text_preview', function() {
