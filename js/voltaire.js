@@ -5,7 +5,7 @@ $(document).ready(function() {
 	// Check for the various File API support.
 	if (window.File && window.FileReader && window.FileList && window.Blob) {
 		console.log('Hooray! The File APIs are fully supported by this browser!');
-		var line = ""
+		// var line = ""
 		for (i = 0; i < NUM_FILES; i++) {
 			filename = './texts/voltaire/' + i + '.txt';
 			readTranslation(filename, i);
@@ -16,9 +16,9 @@ $(document).ready(function() {
 });
 
 function updateMainText(index) {
-	var end_sentence_id = '#' + i + '_end-sentence_0';
-	line += '<div class=\"main-text_preview\" id=\"main-text_preview_' + (i) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
-	$('#main-text').html(line);
+	var end_sentence_id = '#' + index + '_end-sentence_0';
+	var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
+	$('#main-text').append(line);
 }
 
 function loadPreview (index) {
