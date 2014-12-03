@@ -8,9 +8,7 @@ $(document).ready(function() {
 		// var line = ""
 		for (i = 0; i < NUM_FILES; i++) {
 			filename = './texts/voltaire/' + i + '.txt';
-			readTranslation(filename, i).done(function (e) {
-				console.log('test');
-			});
+			readTranslation(filename, i);
 		}
 	} else {
 		alert('The File APIs are not fully supported by your browser.');
