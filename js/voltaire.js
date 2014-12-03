@@ -18,6 +18,7 @@ $(document).ready(function() {
 function updateMainText(index) {
 	var end_sentence_id = '#' + index + '_end-sentence_0';
 	var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
+	console.log('line: ' + line);
 	$('#main-text').append(line);
 }
 
