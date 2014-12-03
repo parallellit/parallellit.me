@@ -1,5 +1,5 @@
 var snt = [];
-var NUM_FILES = 3; 
+var NUM_FILES = 4; 
 
 $(document).ready(function() {
 	// Check for the various File API support.
