@@ -30,16 +30,15 @@ function loadPreview (index) {
 }
 
 function assignEndSentenceIds(filename, index) {
-	$('.full-translation').each(function(i) {
-	   	$(full_translation_id).html(snt[i]);
-	   	$('.end-sentence').each(function(j) {
-			// Store an id with format "uniqueId_{index}" in a variable.
-			var my_class = "end-sentence_" + j; // assumes 1:1 matching for all
-			var id = i + "_" + my_class; 
-			// Give the ID to the div
-			$(this).attr("class", my_class);
-			$(this).attr("id", id);
-		});
+	var full_translation_id = '#full-translation_' + index;
+	$(full_translation_id).html(snt[index]);
+	$('.end-sentence').each(function(j) {
+		// Store an id with format "uniqueId_{index}" in a variable.
+		var my_class = "end-sentence_" + j; // assumes 1:1 matching for all
+		var id = i + "_" + my_class; 
+		// Give the ID to the div
+		$(this).attr("class", my_class);
+		$(this).attr("id", id);
 	});
 }
 
@@ -53,7 +52,6 @@ function readTranslation(filename, index) {
 	   	// end pane itself is not visible at this point
 	   	// console.log(snt);
 	   	var full_translation = '<div class=\"full-translation\" id=\"full-translation_' + index +'\" style=\"width:100%;border-radius:3px;\"></div>';
-	   	var full_translation_id = '#full-translation_' + index;
 	   	$('#end-pane').append(full_translation);
 	});
 }
