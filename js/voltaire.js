@@ -29,6 +29,7 @@ function readTranslation(filename, index) {
 	   	var full_translation_id = '#full-translation_' + index;
 		$(full_translation_id).html(snt[index]);
 	}).done(function(e) {
+		var line = ""
 		$('.end-sentence').each(function(j) {
 			if (j == 0) {
 				console.log('ZERO!');
@@ -36,8 +37,8 @@ function readTranslation(filename, index) {
 			if (j == 1) {
 				console.log($(end_sentence_id).text());
 				var end_sentence_id = '#' + index + '_end-sentence_0';
-				var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).text() + '</div>';
-				$('#main-text').append(line);
+				line += '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).text() + '</div>';
+				$('#main-text').html(line);
 			}
 			var my_class = "end-sentence_" + j; // assumes 1:1 matching for all, so a class looks like end-sentence_0
 			var id = index + "_" + my_class; 
