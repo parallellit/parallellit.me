@@ -5,63 +5,43 @@ $(document).ready(function() {
 	// Check for the various File API support.
 	if (window.File && window.FileReader && window.FileList && window.Blob) {
 		console.log('Hooray! The File APIs are fully supported by this browser!');
-
+		var line = ""
 		for (i = 0; i < NUM_FILES; i++) {
 			filename = './texts/voltaire/' + i + '.txt';
 			// if (i == 0) {
 			// 	readOriginal(filename);
 			// } else {
 				readTranslation(filename, i);
+				assignEndSentenceIds(filename, i);
+				loadPreview(i);
+				line += '<div class=\"main-text_preview\" id=\"main-text_preview_' + (k) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
+				$('#main-text').html(line);
 			// }
 		}
-		var line = "";
-	   	$('.full-translation').each(function(i) {
-	   		$(full_translation_id).html(snt[i]);
-	   		$('.end-sentence').each(function(j) {
-			    // Store an id with format "uniqueId_{index}" in a variable.
-			    var my_class = "end-sentence_" + j; // assumes 1:1 matching for all
-			    var id = i + "_" + my_class; 
-			    // Give the ID to the div
-			    $(this).attr("class", my_class);
-			    $(this).attr("id", id);
-			});
-			// snt[index] = $('.full-translation').html(); <-- never implemented but might be useful
-
-	   		// var line = "";
-	   		$('.end-sentence_0').each(function(k) {
-			   	var end_sentence_id = '#' + k + '_end-sentence_0';
-			   	console.log('END: ' + end_sentence_id);
-			   	console.log('val: ' + $(end_sentence_id).html());
-			   	line += '<div class=\"main-text_preview\" id=\"main-text_preview_' + (k) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
-			});
-			// $('#main-text').html(line);
-	   	});
-	   	$('#main-text').html(line);
 	} else {
 		alert('The File APIs are not fully supported by your browser.');
 	}
 });
 
-// function displayButton() {
+function loadPreview (index) {
+	var end_sentence_id = '#' + index + '_end-sentence_0';
+	console.log('END: ' + end_sentence_id);
+	console.log('val: ' + $(end_sentence_id).html());
+}
 
-// }
-
-// function readOriginal(filename) {
-// 	jQuery.get(filename, function(data) {
-// 		snt[0] = data.replace(/([^.!?]*[^.!?\s][.!?]['"]?)(\s|$)/g, 
-// 	   	'<span class="sentence">$1</span>$2');
-
-// 		displayButtons(); 
-// 		// $('#main-text').html(snt[0]);
-// 		// note that here this will only affect the main-text section
-// 		$('.sentence').each(function(i) {
-// 		    // Store an id with format "uniqueId_{index}" in a variable.
-// 		    var id = "0_sentence_" + i;
-// 		    // Give the ID to the div
-// 		    $(this).attr("id", id);
-// 		});
-// 	});
-// }
+function assignEndSentenceIds(filename, index) {
+	$('.full-translation').each(function(i) {
+	   	$(full_translation_id).html(snt[i]);
+	   	$('.end-sentence').each(function(j) {
+			// Store an id with format "uniqueId_{index}" in a variable.
+			var my_class = "end-sentence_" + j; // assumes 1:1 matching for all
+			var id = i + "_" + my_class; 
+			// Give the ID to the div
+			$(this).attr("class", my_class);
+			$(this).attr("id", id);
+		});
+	});
+}
 
 function readTranslation(filename, index) {
 	// console.log(filename);
