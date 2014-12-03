@@ -14,7 +14,8 @@ $(document).ready(function() {
 				readTranslation(filename, i);
 				assignEndSentenceIds(filename, i);
 				loadPreview(i);
-				line += '<div class=\"main-text_preview\" id=\"main-text_preview_' + (k) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
+				var end_sentence_id = '#' + index + '_end-sentence_0';
+				line += '<div class=\"main-text_preview\" id=\"main-text_preview_' + (i) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
 				$('#main-text').html(line);
 			// }
 		}
