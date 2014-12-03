@@ -17,10 +17,11 @@ $(document).ready(function() {
 
 function updateMainText(index) {
 	var end_sentence_id = '#' + index + '_end-sentence_0';
-	console.log('updateMainText(' + index + ')');
+	// console.log('updateMainText(' + index + ')');
 	
 	var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).text() + '</div>';
-	console.log('line: ' + line);
+	// console.log('line: ' + line);
+	$('#main-text').append(line);
 	// return line; 
 	// console.log('#main-text: ' + $('#main-text').html());
 }
@@ -74,11 +75,11 @@ function readTranslation(filename, index) {
 			$(this).attr("id", id);
 			console.log('id: ' + id);
 		});
+		setTimeout(updateMainText, 500);
 	}).done(function(e) {
-		sleep(500);
-		var end_sentence_id = '#' + index + '_end-sentence_0';
-		var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).text() + '</div>';
-		$('#main-text').append(line);
+		// var end_sentence_id = '#' + index + '_end-sentence_0';
+		// var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).text() + '</div>';
+		// $('#main-text').append(line);
 	});
 }
 
