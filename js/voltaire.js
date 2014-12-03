@@ -7,7 +7,7 @@ $(document).ready(function() {
 		console.log('Hooray! The File APIs are fully supported by this browser!');
 		for (i = 0; i < NUM_FILES; i++) {
 			filename = './texts/voltaire/' + i + '.txt';
-			readTranslation(filename, line, i);
+			readTranslation(filename, i);
 		}
 	} else {
 		alert('The File APIs are not fully supported by your browser.');
