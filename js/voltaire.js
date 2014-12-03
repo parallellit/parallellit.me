@@ -14,6 +14,29 @@ $(document).ready(function() {
 				readTranslation(filename, i);
 			// }
 		}
+		var line = "";
+	   	$('.full-translation').each(function(i) {
+	   		$(full_translation_id).html(snt[i]);
+	   		$('.end-sentence').each(function(j) {
+			    // Store an id with format "uniqueId_{index}" in a variable.
+			    var my_class = "end-sentence_" + j; // assumes 1:1 matching for all
+			    var id = i + "_" + my_class; 
+			    // Give the ID to the div
+			    $(this).attr("class", my_class);
+			    $(this).attr("id", id);
+			});
+			// snt[index] = $('.full-translation').html(); <-- never implemented but might be useful
+
+	   		// var line = "";
+	   		$('.end-sentence_0').each(function(k) {
+			   	var end_sentence_id = '#' + k + '_end-sentence_0';
+			   	console.log('END: ' + end_sentence_id);
+			   	console.log('val: ' + $(end_sentence_id).html());
+			   	line += '<div class=\"main-text_preview\" id=\"main-text_preview_' + (k) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
+			});
+			// $('#main-text').html(line);
+	   	});
+	   	$('#main-text').html(line);
 	} else {
 		alert('The File APIs are not fully supported by your browser.');
 	}
@@ -52,29 +75,6 @@ function readTranslation(filename, index) {
 	   	var full_translation = '<div class=\"full-translation\" id=\"full-translation_' + index +'\" style=\"width:100%;border-radius:3px;\"></div>';
 	   	var full_translation_id = '#full-translation_' + index;
 	   	$('#end-pane').append(full_translation);
-	   	var line = "";
-	   	$('.full-translation').each(function(i) {
-	   		$(full_translation_id).html(snt[index]);
-	   		$('.end-sentence').each(function(j) {
-			    // Store an id with format "uniqueId_{index}" in a variable.
-			    var my_class = "end-sentence_" + j; // assumes 1:1 matching for all
-			    var id = index + "_" + my_class; 
-			    // Give the ID to the div
-			    $(this).attr("class", my_class);
-			    $(this).attr("id", id);
-			});
-			// snt[index] = $('.full-translation').html(); <-- never implemented but might be useful
-
-	   		// var line = "";
-	   		$('.end-sentence_0').each(function(k) {
-			   	var end_sentence_id = '#' + k + '_end-sentence_0';
-			   	console.log('END: ' + end_sentence_id);
-			   	console.log('val: ' + $(end_sentence_id).html());
-			   	line += '<div class=\"main-text_preview\" id=\"main-text_preview_' + (k) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
-			});
-			// $('#main-text').html(line);
-	   	});
-	   	$('#main-text').html(line);
 	});
 }
 
