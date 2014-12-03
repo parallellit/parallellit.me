@@ -135,12 +135,13 @@ $(document).on('click','.sentence', function() {
 
 		for (it = 0; it < index; it++) {
 			author = '#' + (it) + '_end-sentence_0';
-			end_sentence_id = '#' + (it) + '_end-sentence_' + event.target.id.slice(-1);
-			end_sentence_class = '.end-sentence_' + event.target.id.slice(-1);
+			// end_sentence_id = '#' + (it) + '_end-sentence_' + event.target.id.slice(-1);
+			end_sentence_id = '#' + (it) + end_sentence;
+			// end_sentence_class = '.end-sentence_' + event.target.id.slice(-1);
 			line += '<div class=\"preview\" id=\"preview_' + (it) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '<div style=\"font-size:70%;font-weight:bold;\">' + $(author).text().substring(0,($(author).text().length - 1)) + '</div></div>';
 		   	// console.log('what: ' + author);
 		   	$('#sample-sentences').html(line);
-		   	$(end_sentence_class).css("background","#CCC"); // highlight all matching sentences (to clicked one)
+		   	$(end_sentence).css("background","#CCC"); // highlight all matching sentences (to clicked one)
 		}
 
 		$('#end-pane').css("display","none");
