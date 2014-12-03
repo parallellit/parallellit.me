@@ -74,9 +74,10 @@ function readTranslation(filename, index) {
 				$(this).attr("id", id);
 				console.log('id: ' + id);
 			});
-			updateMainText(index);
 		}
-	);
+	).done(function(e) {
+		updateMainText(index);
+	});
 	return; 
 }
 
