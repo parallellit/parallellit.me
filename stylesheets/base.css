@@ -259,6 +259,11 @@
 		font-weight: normal;
 		font-size: 13px;
 		color: #444; }
+		
+	br {
+	   display: block;
+	   margin: 10px 0;
+	}
 
 /* #Misc
 ================================================== */
