@@ -20,8 +20,9 @@ function updateMainText(index) {
 	console.log('updateMainText(' + index + ')');
 	
 	var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).text() + '</div>';
-	console.log('line: ' + line);
-	$('#main-text').append(line);
+	console.log('line: ' + line).done(function(e) {
+		$('#main-text').append(line);
+	});
 	// console.log('#main-text: ' + $('#main-text').html());
 }
 
