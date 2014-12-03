@@ -25,7 +25,8 @@ function readTranslation(filename, index) {
 	   	var full_translation = '<div class=\"full-translation\" id=\"full-translation_' + index +'\" style=\"width:100%;border-radius:3px;\"></div>';
 	   	$('#end-pane').append(full_translation);
 	   	// console.log('#end-pane: ' + $('#end-pane').html());
-	   	var full_translation_id = '#full-translation_' + index;
+	}).done(function(e) {
+		var full_translation_id = '#full-translation_' + index;
 		$(full_translation_id).html(snt[index]);
 	}).done(function(e) {
 		$('.end-sentence').each(function(j) {
