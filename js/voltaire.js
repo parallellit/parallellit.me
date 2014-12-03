@@ -18,7 +18,7 @@ $(document).ready(function() {
 function updateMainText(index) {
 	console.log('updateMainText(' + index + ')');
 	var end_sentence_id = '#' + index + '_end-sentence_0';
-	var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
+	var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).text() + '</div>';
 	console.log('line: ' + line);
 	$('#main-text').append(line);
 	// console.log('#main-text: ' + $('#main-text').html());
@@ -35,6 +35,10 @@ function loadPreview (index) {
 function assignEndSentenceId(index) {
 	console.log('assignEndSentenceId(' + index + ')');
 	setTimeout(loadPreview(index), 0);
+	
+	var full_translation_id = '#full-translation_' + index;
+	$(full_translation_id).html(snt[index]);
+	
 	$('.end-sentence').each(function(j) {
 		// Store an id with format "uniqueId_{index}" in a variable.
 		var my_class = "end-sentence_" + j; // assumes 1:1 matching for all, so a class looks like end-sentence_0
@@ -52,10 +56,10 @@ function readTranslation(filename, index) {
 	jQuery.get(filename, function(data) {
 		snt.push(data.replace(/([^.!?]*[^.!?\s][.!?]['"]?)(\s|$)/g, 
 	   	'<span class="end-sentence">$1</span>$2'));
-		var full_translation_id = '#full-translation_' + index;
+	   	// empty divs
 	   	var full_translation = '<div class=\"full-translation\" id=\"full-translation_' + index +'\" style=\"width:100%;border-radius:3px;\"></div>';
 	   	$('#end-pane').append(full_translation);
-	   	$(full_translation_id).html(snt[index]);
+	   	console.log('#end-pane: ' + $('#end-pane').html());
 	});
 }
 
