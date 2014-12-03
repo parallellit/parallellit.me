@@ -75,6 +75,7 @@ function readTranslation(filename, index) {
 			console.log('id: ' + id);
 		});
 	}).done(function(e) {
+		sleep(500);
 		var end_sentence_id = '#' + index + '_end-sentence_0';
 		var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).text() + '</div>';
 		$('#main-text').append(line);
