@@ -16,8 +16,9 @@ $(document).ready(function() {
 });
 
 function updateMainText(index) {
-	console.log('updateMainText(' + index + ')');
 	var end_sentence_id = '#' + index + '_end-sentence_0';
+	console.log('updateMainText(' + index + ')');
+	
 	var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).text() + '</div>';
 	console.log('line: ' + line);
 	$('#main-text').append(line);
@@ -25,16 +26,17 @@ function updateMainText(index) {
 }
 
 function loadPreview (index) {
-	console.log('loadPreview(' + index + ')');
 	setTimeout(updateMainText(index), 0);
+	console.log('loadPreview(' + index + ')');
+	
 	var end_sentence_id = '#' + index + '_end-sentence_0';
 	console.log('END: ' + end_sentence_id);
 	console.log('val: ' + $(end_sentence_id).html());
 }
 
 function assignEndSentenceId(index) {
-	console.log('assignEndSentenceId(' + index + ')');
 	setTimeout(loadPreview(index), 0);
+	console.log('assignEndSentenceId(' + index + ')');
 	
 	var full_translation_id = '#full-translation_' + index;
 	$(full_translation_id).html(snt[index]);
@@ -51,8 +53,9 @@ function assignEndSentenceId(index) {
 }
 
 function readTranslation(filename, index) {
-	console.log('readTranslation');
 	setTimeout(assignEndSentenceId(index), 0);
+	console.log('readTranslation(' + index + ')');
+	
 	jQuery.get(filename, function(data) {
 		snt.push(data.replace(/([^.!?]*[^.!?\s][.!?]['"]?)(\s|$)/g, 
 	   	'<span class="end-sentence">$1</span>$2'));
