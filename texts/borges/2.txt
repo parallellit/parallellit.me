@@ -1,18 +1,19 @@
-<p>Andrew Hurley.</p> 
+Andrew Hurley.<br>
 
-<p>By this art you may contemplate the variation of the 23 letters. 
-—Anatomy of Melancholy, Pt. 2, Sec. II, Mem. IV. The universe (which others call the Library) is composed of an indefinite, perhaps infinite number of hexagonal galleries. In the center of each gallery is a ventilation shaft, bounded by a low railing. 
-From any hexagon one can see the floors above and below—one after another, 
-endlessly.</p>
+By this art you may contemplate the variation of the 23 letters. 
+—Anatomy of Melancholy, Pt. 2, Sec. II, Mem. IV. <br>
 
-<p>The arrangement of the galleries is always the same: Twenty bookshelves, 
+The universe (which others call the Library) is composed of an indefinite, perhaps infinite number of hexagonal galleries. In the center of each gallery is a ventilation shaft, bounded by a low railing. 
+From any hexagon one can see the floors above and below—one after another, endlessly.<br>
+
+The arrangement of the galleries is always the same: Twenty bookshelves, 
 five to each side, line four of the hexagon’s six sides; the height of the bookshelves, 
 floor to ceiling, is hardly greater than the height of a normal librarian. One of the 
 hexagon’s free sides opens onto a narrow sort of vestibule, which in turn opens onto 
 another gallery, identical to the first—identical in fact to all. To the left and right of 
-the vestibule are two tiny compartments.</p>
+the vestibule are two tiny compartments.<br>
 
-<p>One is for sleeping, upright; the other, for 
+One is for sleeping, upright; the other, for 
 satisfying one’s physical necessities. Through this space, too, there passes a spiral 
 staircase, which winds upward and downward into the remotest distance. In the 
 vestibule there is a mirror, which faithfully duplicates appearances. Men often infer 
@@ -20,7 +21,7 @@ from this mirror that the Library is not infinite—if it were, what need would 
 be for that illusory replication? I prefer to dream that burnished surfaces are a 
 figuration and promise of the infinite. . . . Light is provided by certain spherical fruits 
 that bear the name “bulbs.” There are two of these bulbs in each hexagon, set 
-crosswise. The light they give is insufficient, and unceasing.</p>
+crosswise. The light they give is insufficient, and unceasing.<br>
 						
 <p>Like all the men of the Library, in my younger days I traveled; I have journeyed in 
 quest of a book, perhaps the catalog of catalogs. Now that my eyes can hardly make 
@@ -28,7 +29,7 @@ out what I myself have written, I am preparing to die, a few leagues from the
 hexagon where I was born. When I am dead, compassionate hands will throw me 
 over the railing; my tomb will be the unfathomable air, my body will sink for ages, 
 and will decay and dissolve in the wind engendered by my fall, which shall be 
-infinite.</p> 					
+infinite.					
 				
 			
 		
