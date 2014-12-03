@@ -7,7 +7,7 @@ $(document).ready(function() {
 		console.log('Hooray! The File APIs are fully supported by this browser!');
 
 		for (i = 0; i < NUM_FILES; i++) {
-			filename = './texts/candide/' + i + '.txt';
+			filename = './texts/voltaire/' + i + '.txt';
 			// if (i == 0) {
 			// 	readOriginal(filename);
 			// } else {
