@@ -16,7 +16,7 @@ $(document).ready(function() {
 });
 
 function updateMainText(index) {
-	console.log('updateMainText');
+	console.log('updateMainText(' + index + ')');
 	var end_sentence_id = '#' + index + '_end-sentence_0';
 	var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
 	console.log('line: ' + line);
@@ -24,7 +24,7 @@ function updateMainText(index) {
 }
 
 function loadPreview (index) {
-	console.log('loadPreview');
+	console.log('loadPreview(' + index + ')');
 	setTimeout(updateMainText(index), 0);
 	var end_sentence_id = '#' + index + '_end-sentence_0';
 	console.log('END: ' + end_sentence_id);
@@ -32,7 +32,7 @@ function loadPreview (index) {
 }
 
 function assignEndSentenceId(filename, index) {
-	console.log('assignEndSentenceId');
+	console.log('assignEndSentenceId(' + filename + ',' + index + ')');
 	setTimeout(loadPreview(index), 0);
 	var full_translation_id = '#full-translation_' + index;
 	$(full_translation_id).html(snt[index]);
@@ -69,14 +69,6 @@ $(document).on('click','.main-text_preview', function() {
 		$(this).attr("id", id);
 		console.log('MY ID: ' + $(this).attr("id"));
 	});
-	// var preview_number = event.target.id.slice(-1);
-	// var translation_to_view_id = '#full-translation_' + preview_number; 
-	// $('.full-translation').css("display", "none");
-	// // console.log(translation_to_view_id);
-	// $(translation_to_view_id).css("display","block");
-	// $('#end-pane').css("display","block");
-	// $('.preview').css("background","none");
-	// $(preview_id).css("background","#F1F1F1");
 });
 
 $(document).on('click','.sentence', function() {
