@@ -30,7 +30,11 @@ function readTranslation(filename, index) {
 		$(full_translation_id).html(snt[index]);
 	}).done(function(e) {
 		$('.end-sentence').each(function(j) {
+			if (j == 0) {
+				console.log('ZERO!');
+			}
 			if (j == 1) {
+				console.log('ONE!');
 				var end_sentence_id = '#' + index + '_end-sentence_0';
 				var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).text() + '</div>';
 				$('#main-text').append(line);
