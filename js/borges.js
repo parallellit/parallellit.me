@@ -116,7 +116,7 @@ $(document).on('click','.sentence', function() {
 
 	   	$('.end-sentence').each(function(j) {
 		    // Store an id with format "uniqueId_{index}" in a variable.
-		    var my_class = "end-sentence_" + (j % 151); // assumes 1:1 matching for all
+		    var my_class = "end-sentence_" + j; // assumes 1:1 matching for all
 		    var id = (i) + "_" + my_class; 
 		    // Give the ID to the div
 		    $(this).attr("class", my_class);
