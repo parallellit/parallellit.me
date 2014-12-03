@@ -31,12 +31,12 @@ function assignEndSentenceIds(filename, index) {
 	$('.end-sentence').each(function(j) {
 		// Store an id with format "uniqueId_{index}" in a variable.
 		var my_class = "end-sentence_" + j; // assumes 1:1 matching for all
-		var id = i + "_" + my_class; 
+		var id = index + "_" + my_class; 
 		// Give the ID to the div
 		$(this).attr("class", my_class);
 		$(this).attr("id", id);
 	});
-	loadPreview(i);
+	loadPreview(index);
 }
 
 function readTranslation(filename, index) {
