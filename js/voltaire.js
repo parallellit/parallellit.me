@@ -54,7 +54,7 @@ function assignEndSentenceId(index) {
 
 function readTranslation(filename, index) {
 	jQuery.get(filename, function(data) {
-		setTimeout(assignEndSentenceId(index), 0);
+		setTimeout(loadPreview(index), 0);
 		console.log('readTranslation(' + index + ')');
 		
 		snt.push(data.replace(/([^.!?]*[^.!?\s][.!?]['"]?)(\s|$)/g, 
@@ -64,17 +64,17 @@ function readTranslation(filename, index) {
 	   	$('#end-pane').append(full_translation);
 	   	console.log('#end-pane: ' + $('#end-pane').html());
 	   	var full_translation_id = '#full-translation_' + index;
-		$(full_translation_id).html(snt[index]);
-		// console.log(full_translation_id + ': ' + $(full_translation_id).html());
-		
-		$('.end-sentence').each(function(j) {
-			var my_class = "end-sentence_" + j; // assumes 1:1 matching for all, so a class looks like end-sentence_0
-			var id = index + "_" + my_class; 
-			// Give the ID to the div
-			$(this).attr("class", my_class);
-			$(this).attr("id", id);
-			console.log('id: ' + id);
+		$(full_translation_id).html(snt[index], function(e) {
+			$('.end-sentence').each(function(j) {
+				var my_class = "end-sentence_" + j; // assumes 1:1 matching for all, so a class looks like end-sentence_0
+				var id = index + "_" + my_class; 
+				// Give the ID to the div
+				$(this).attr("class", my_class);
+				$(this).attr("id", id);
+				console.log('id: ' + id);
+			});
 		});
+		// console.log(full_translation_id + ': ' + $(full_translation_id).html());
 		
 		return; 
 	});
