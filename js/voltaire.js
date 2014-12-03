@@ -5,10 +5,9 @@ $(document).ready(function() {
 	// Check for the various File API support.
 	if (window.File && window.FileReader && window.FileList && window.Blob) {
 		console.log('Hooray! The File APIs are fully supported by this browser!');
-		// var line = ""
 		for (i = 0; i < NUM_FILES; i++) {
 			filename = './texts/voltaire/' + i + '.txt';
-			readTranslation(filename, i);
+			readTranslation(filename, line, i);
 		}
 	} else {
 		alert('The File APIs are not fully supported by your browser.');
@@ -29,16 +28,15 @@ function readTranslation(filename, index) {
 	   	var full_translation_id = '#full-translation_' + index;
 		$(full_translation_id).html(snt[index]);
 	}).done(function(e) {
-		var line = "";
 		$('.end-sentence').each(function(j) {
 			if (j == 0) {
 				console.log('ZERO!');
 			}
 			if (j == 1) {
-				console.log($(end_sentence_id).text());
 				var end_sentence_id = '#' + index + '_end-sentence_0';
-				line += '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).text() + '</div>';
-				$('#main-text').html(line);
+				var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).text() + '</div>';
+				console.log('endT: ' + $(end_sentence_id).text());
+				$('#main-text').append(line);
 			}
 			var my_class = "end-sentence_" + j; // assumes 1:1 matching for all, so a class looks like end-sentence_0
 			var id = index + "_" + my_class; 
