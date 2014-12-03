@@ -16,6 +16,7 @@ $(document).ready(function() {
 });
 
 function updateMainText(index) {
+	console.log('updateMainText');
 	var end_sentence_id = '#' + index + '_end-sentence_0';
 	var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
 	console.log('line: ' + line);
@@ -23,6 +24,7 @@ function updateMainText(index) {
 }
 
 function loadPreview (index) {
+	console.log('loadPreview');
 	setTimeout(updateMainText(index), 0);
 	var end_sentence_id = '#' + index + '_end-sentence_0';
 	console.log('END: ' + end_sentence_id);
@@ -30,6 +32,7 @@ function loadPreview (index) {
 }
 
 function assignEndSentenceId(filename, index) {
+	console.log('assignEndSentenceId');
 	setTimeout(loadPreview(index), 0);
 	var full_translation_id = '#full-translation_' + index;
 	$(full_translation_id).html(snt[index]);
@@ -44,6 +47,7 @@ function assignEndSentenceId(filename, index) {
 }
 
 function readTranslation(filename, index) {
+	console.log('readTranslation');
 	setTimeout(assignEndSentenceId(filename, index), 0);
 	jQuery.get(filename, function(data) {
 		snt.push(data.replace(/([^.!?]*[^.!?\s][.!?]['"]?)(\s|$)/g, 
