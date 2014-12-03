@@ -29,7 +29,7 @@ function readTranslation(filename, index) {
 	   	var full_translation_id = '#full-translation_' + index;
 		$(full_translation_id).html(snt[index]);
 	}).done(function(e) {
-		var line = ""
+		var line = "";
 		$('.end-sentence').each(function(j) {
 			if (j == 0) {
 				console.log('ZERO!');
