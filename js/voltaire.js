@@ -38,8 +38,6 @@ function assignEndSentenceId(index) {
 	setTimeout(loadPreview(index), 0);
 	console.log('assignEndSentenceId(' + index + ')');
 	
-	var full_translation_id = '#full-translation_' + index;
-	$(full_translation_id).html(snt[index]);
 	console.log('#end-pane2: ' + $('#end-pane').html());
 	
 	$('.end-sentence').each(function(j) {
@@ -63,6 +61,9 @@ function readTranslation(filename, index) {
 	   	var full_translation = '<div class=\"full-translation\" id=\"full-translation_' + index +'\" style=\"width:100%;border-radius:3px;\"></div>';
 	   	$('#end-pane').append(full_translation);
 	   	console.log('#end-pane: ' + $('#end-pane').html());
+	   	var full_translation_id = '#full-translation_' + index;
+		$(full_translation_id).html(snt[index]);
+		console.log(full_translation_id + ': ' + $(full_translation_id).html());
 	});
 }
 
