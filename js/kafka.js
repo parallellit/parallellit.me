@@ -1,5 +1,5 @@
 var snt = [];
-var NUM_FILES = 4; 
+var NUM_FILES = 3; 
 
 $(document).ready(function() {
 	// Check for the various File API support.
@@ -67,8 +67,8 @@ function readTranslation(filename, index) {
 	   		var line = "";
 	   		$('.end-sentence_0').each(function(k) {
 			   	var end_sentence_id = '#' + k + '_end-sentence_0';
-			   	// console.log('END: ' + end_sentence_id);
-			   	// console.log('val: ' + $(end_sentence_id).html());
+			   	console.log('END: ' + end_sentence_id);
+			   	console.log('val: ' + $(end_sentence_id).html());
 			   	line += '<div class=\"main-text_preview\" id=\"main-text_preview_' + (k) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
 			});
 			$('#main-text').html(line);
@@ -116,7 +116,7 @@ $(document).on('click','.sentence', function() {
 
 	   	$('.end-sentence').each(function(j) {
 		    // Store an id with format "uniqueId_{index}" in a variable.
-		    var my_class = "end-sentence_" + (j % 151); // assumes 1:1 matching for all
+		    var my_class = "end-sentence_" + j; // assumes 1:1 matching for all
 		    var id = (i) + "_" + my_class; 
 		    // Give the ID to the div
 		    $(this).attr("class", my_class);
@@ -135,12 +135,14 @@ $(document).on('click','.sentence', function() {
 
 		for (it = 0; it < index; it++) {
 			author = '#' + (it) + '_end-sentence_0';
-			end_sentence_id = '#' + (it) + '_end-sentence_' + event.target.id.slice(-1);
-			end_sentence_class = '.end-sentence_' + event.target.id.slice(-1);
+			// end_sentence_id = '#' + (it) + '_end-sentence_' + event.target.id.slice(-1);
+			end_sentence_id = '#' + (it) + '_' + end_sentence.substring(1);
+			console.log('end_sentence to highlight: ' + end_sentence_id);
+			// end_sentence_class = '.end-sentence_' + event.target.id.slice(-1);
 			line += '<div class=\"preview\" id=\"preview_' + (it) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '<div style=\"font-size:70%;font-weight:bold;\">' + $(author).text().substring(0,($(author).text().length - 1)) + '</div></div>';
 		   	// console.log('what: ' + author);
 		   	$('#sample-sentences').html(line);
-		   	$(end_sentence_class).css("background","#CCC"); // highlight all matching sentences (to clicked one)
+		   	$(end_sentence).css("background","#CCC"); // highlight all matching sentences (to clicked one)
 		}
 
 		$('#end-pane').css("display","none");
