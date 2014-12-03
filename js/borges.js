@@ -43,7 +43,7 @@ $(document).ready(function() {
 function readTranslation(filename, index) {
 	// console.log(filename);
 	jQuery.get(filename, function(data) {
-		snt.push(data.replace(/([^.!?]*[^.!?\s][.!?]['"]?)(\s|$)/g, 
+		snt.push(data.replace(/([.?!])\s*(?=[A-Z])/, 
 	   	'<span class="end-sentence">$1</span>$2'));
 	   	// console.log(index);
 
