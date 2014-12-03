@@ -75,6 +75,7 @@ function readTranslation(filename, index) {
 			});
 		});
 	});
+	console.log('free...!');
 	return; 
 }
 
