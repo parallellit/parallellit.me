@@ -53,7 +53,7 @@ function assignEndSentenceId(index) {
 }
 
 function readTranslation(filename, index) {
-	setTimeout(loadPreview(index), 0);
+	// setTimeout(loadPreview(index), 0);
 	console.log('readTranslation(' + index + ')');
 	
 	jQuery.get(filename, function(data) {
@@ -74,9 +74,9 @@ function readTranslation(filename, index) {
 				$(this).attr("id", id);
 				console.log('id: ' + id);
 			});
+			loadPreview(index);
 		}
 	);
-	console.log('free...!');
 	return; 
 }
 
