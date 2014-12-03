@@ -31,8 +31,8 @@ function loadPreview (index) {
 	console.log('val: ' + $(end_sentence_id).html());
 }
 
-function assignEndSentenceId(filename, index) {
-	console.log('assignEndSentenceId(' + filename + ',' + index + ')');
+function assignEndSentenceId(index) {
+	console.log('assignEndSentenceId(' + index + ')');
 	setTimeout(loadPreview(index), 0);
 	var full_translation_id = '#full-translation_' + index;
 	$(full_translation_id).html(snt[index]);
@@ -43,12 +43,13 @@ function assignEndSentenceId(filename, index) {
 		// Give the ID to the div
 		$(this).attr("class", my_class);
 		$(this).attr("id", id);
+		console.log('id: ' + id);
 	});
 }
 
 function readTranslation(filename, index) {
 	console.log('readTranslation');
-	setTimeout(assignEndSentenceId(filename, index), 0);
+	setTimeout(assignEndSentenceId(index), 0);
 	jQuery.get(filename, function(data) {
 		snt.push(data.replace(/([^.!?]*[^.!?\s][.!?]['"]?)(\s|$)/g, 
 	   	'<span class="end-sentence">$1</span>$2'));
