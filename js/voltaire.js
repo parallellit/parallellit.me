@@ -32,12 +32,13 @@ function loadPreview (index) {
 	var end_sentence_id = '#' + index + '_end-sentence_0';
 	console.log('END: ' + end_sentence_id);
 	console.log('val: ' + $(end_sentence_id).html());
+	return; 
 }
 
 function assignEndSentenceId(index) {
 	setTimeout(loadPreview(index), 0);
-	console.log('assignEndSentenceId(' + index + ')');
 	
+	console.log('assignEndSentenceId(' + index + ')');
 	console.log('#end-pane2: ' + $('#end-pane').html());
 	
 	$('.end-sentence').each(function(j) {
@@ -48,13 +49,14 @@ function assignEndSentenceId(index) {
 		$(this).attr("id", id);
 		console.log('id: ' + id);
 	});
+	return; 
 }
 
 function readTranslation(filename, index) {
+	setTimeout(assignEndSentenceId(index), 0);
+	console.log('readTranslation(' + index + ')');
+	
 	jQuery.get(filename, function(data) {
-		setTimeout(assignEndSentenceId(index), 0);
-		console.log('readTranslation(' + index + ')');
-		
 		snt.push(data.replace(/([^.!?]*[^.!?\s][.!?]['"]?)(\s|$)/g, 
 	   	'<span class="end-sentence">$1</span>$2'));
 	   	// empty divs
@@ -64,6 +66,7 @@ function readTranslation(filename, index) {
 	   	var full_translation_id = '#full-translation_' + index;
 		$(full_translation_id).html(snt[index]);
 		console.log(full_translation_id + ': ' + $(full_translation_id).html());
+		return; 
 	});
 }
 
