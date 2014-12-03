@@ -69,7 +69,7 @@ function readTranslation(filename, index) {
 			   	var end_sentence_id = '#' + k + '_end-sentence_0';
 			   	console.log('END: ' + end_sentence_id);
 			   	console.log('val: ' + $(end_sentence_id).html());
-			   	console.log('latest 938');
+			   	console.log('TS: 942');
 			   	line += '<div class=\"main-text_preview\" id=\"main-text_preview_' + (k) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
 			});
 			$('#main-text').html(line);
