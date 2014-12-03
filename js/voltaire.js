@@ -54,7 +54,7 @@ function assignEndSentenceId(index) {
 
 function readTranslation(filename, index) {
 	jQuery.get(filename, function(data) {
-		setTimeout(assignEndSentenceId(index), 0);
+		setTimeout(assignEndSentenceId(index), 100);
 		console.log('readTranslation(' + index + ')');
 		
 		snt.push(data.replace(/([^.!?]*[^.!?\s][.!?]['"]?)(\s|$)/g, 
@@ -65,7 +65,7 @@ function readTranslation(filename, index) {
 	   	console.log('#end-pane: ' + $('#end-pane').html());
 	   	var full_translation_id = '#full-translation_' + index;
 		$(full_translation_id).html(snt[index]);
-		console.log(full_translation_id + ': ' + $(full_translation_id).html());
+		// console.log(full_translation_id + ': ' + $(full_translation_id).html());
 		return; 
 	});
 }
