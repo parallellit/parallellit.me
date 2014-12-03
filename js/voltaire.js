@@ -26,9 +26,13 @@ function readTranslation(filename, index) {
 	   	$('#end-pane').append(full_translation);
 	   	// console.log('#end-pane: ' + $('#end-pane').html());
 	}).done(function(e) {
+		console.log('FILL full_translation(' + index + ')');
+		
 		var full_translation_id = '#full-translation_' + index;
 		$(full_translation_id).html(snt[index]);
 	}).done(function(e) {
+		console.log('UPD end-sentence (' + index + ')');
+		
 		$('.end-sentence').each(function(j) {
 			if (j == 0) {
 				console.log('ZERO!');
