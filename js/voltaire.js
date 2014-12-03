@@ -52,6 +52,7 @@ function readTranslation(filename, index) {
 	   	var full_translation = '<div class=\"full-translation\" id=\"full-translation_' + index +'\" style=\"width:100%;border-radius:3px;\"></div>';
 	   	var full_translation_id = '#full-translation_' + index;
 	   	$('#end-pane').append(full_translation);
+	   	var line = "";
 	   	$('.full-translation').each(function(i) {
 	   		$(full_translation_id).html(snt[index]);
 	   		$('.end-sentence').each(function(j) {
@@ -64,7 +65,7 @@ function readTranslation(filename, index) {
 			});
 			// snt[index] = $('.full-translation').html(); <-- never implemented but might be useful
 
-	   		var line = "";
+	   		// var line = "";
 	   		$('.end-sentence_0').each(function(k) {
 			   	var end_sentence_id = '#' + k + '_end-sentence_0';
 			   	console.log('END: ' + end_sentence_id);
