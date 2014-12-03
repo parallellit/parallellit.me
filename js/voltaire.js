@@ -27,12 +27,12 @@ function updateMainText(index) {
 
 function loadPreview (index) {
 	setTimeout(updateMainText(index), 0);
-	console.log('loadPreview(' + index + ')');
+	console.log('loadPreview(' + index + ')').done;
 	
-	var end_sentence_id = '#' + index + '_end-sentence_0';
-	console.log('END: ' + end_sentence_id);
-	console.log('val: ' + $(end_sentence_id).html());
-	return; 
+	// var end_sentence_id = '#' + index + '_end-sentence_0';
+	// console.log('END: ' + end_sentence_id);
+	// console.log('val: ' + $(end_sentence_id).html());
+	// return; 
 }
 
 function assignEndSentenceId(index) {
@@ -74,7 +74,7 @@ function readTranslation(filename, index) {
 				$(this).attr("id", id);
 				console.log('id: ' + id);
 			});
-			loadPreview(index);
+			updateMainText(index);
 		}
 	);
 	return; 
