@@ -8,12 +8,7 @@ $(document).ready(function() {
 		var line = ""
 		for (i = 0; i < NUM_FILES; i++) {
 			filename = './texts/voltaire/' + i + '.txt';
-			// if (i == 0) {
-			// 	readOriginal(filename);
-			// } else {
 				readTranslation(filename, i);
-				assignEndSentenceIds(filename, i);
-				loadPreview(i);
 				var end_sentence_id = '#' + i + '_end-sentence_0';
 				line += '<div class=\"main-text_preview\" id=\"main-text_preview_' + (i) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
 				$('#main-text').html(line);
@@ -41,6 +36,7 @@ function assignEndSentenceIds(filename, index) {
 		$(this).attr("class", my_class);
 		$(this).attr("id", id);
 	});
+	loadPreview(i);
 }
 
 function readTranslation(filename, index) {
@@ -55,6 +51,7 @@ function readTranslation(filename, index) {
 	   	var full_translation = '<div class=\"full-translation\" id=\"full-translation_' + index +'\" style=\"width:100%;border-radius:3px;\"></div>';
 	   	$('#end-pane').append(full_translation);
 	});
+	assignEndSentenceIds(filename, index);
 }
 
 $(document).on('click','.main-text_preview', function() {
