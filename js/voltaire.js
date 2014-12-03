@@ -71,10 +71,9 @@ function readTranslation(filename, index) {
 			   	console.log('val: ' + $(end_sentence_id).html());
 			   	line += '<div class=\"main-text_preview\" id=\"main-text_preview_' + (k) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
 			});
-			$('#main-text').html(line);
+			// $('#main-text').html(line);
 	   	});
-
-	   	// var line = "";
+	   	$('#main-text').html(line);
 	});
 }
 
