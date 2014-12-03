@@ -21,6 +21,7 @@ function updateMainText(index) {
 	var line = '<div class=\"main-text_preview\" id=\"main-text_preview_' + (index) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
 	console.log('line: ' + line);
 	$('#main-text').append(line);
+	console.log('#main-text: ' + line);
 }
 
 function loadPreview (index) {
@@ -68,7 +69,7 @@ $(document).on('click','.main-text_preview', function() {
 		var id = main_preview_number + "_" + my_class + "_" + i;
 		$(this).attr("class", my_class);
 		$(this).attr("id", id);
-		console.log('MY ID: ' + $(this).attr("id"));
+		// console.log('MY ID: ' + $(this).attr("id"));
 	});
 });
 
