@@ -64,7 +64,8 @@ function readTranslation(filename, index) {
 	   	$('#end-pane').append(full_translation);
 	   	console.log('#end-pane: ' + $('#end-pane').html());
 	   	var full_translation_id = '#full-translation_' + index;
-		$(full_translation_id).html(snt[index], function(e) {
+		$(full_translation_id).html(snt[index]);
+	}).done(function(e) {
 			$('.end-sentence').each(function(j) {
 				var my_class = "end-sentence_" + j; // assumes 1:1 matching for all, so a class looks like end-sentence_0
 				var id = index + "_" + my_class; 
@@ -73,8 +74,8 @@ function readTranslation(filename, index) {
 				$(this).attr("id", id);
 				console.log('id: ' + id);
 			});
-		});
-	});
+		}
+	);
 	console.log('free...!');
 	return; 
 }
