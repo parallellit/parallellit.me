@@ -8,24 +8,28 @@ $(document).ready(function() {
 		var line = ""
 		for (i = 0; i < NUM_FILES; i++) {
 			filename = './texts/voltaire/' + i + '.txt';
-				readTranslation(filename, i);
-				var end_sentence_id = '#' + i + '_end-sentence_0';
-				line += '<div class=\"main-text_preview\" id=\"main-text_preview_' + (i) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
-				$('#main-text').html(line);
-			// }
+			readTranslation(filename, i);
 		}
 	} else {
 		alert('The File APIs are not fully supported by your browser.');
 	}
 });
 
+function updateMainText(index) {
+	var end_sentence_id = '#' + i + '_end-sentence_0';
+	line += '<div class=\"main-text_preview\" id=\"main-text_preview_' + (i) + '\" style=\"width:100%;padding:5px;padding-right:20px;border-radius:3px;\">' + $(end_sentence_id).html() + '</div>';
+	$('#main-text').html(line);
+}
+
 function loadPreview (index) {
+	setTimeout(updateMainText(index), 0);
 	var end_sentence_id = '#' + index + '_end-sentence_0';
 	console.log('END: ' + end_sentence_id);
 	console.log('val: ' + $(end_sentence_id).html());
 }
 
-function assignEndSentenceIds(filename, index) {
+function assignEndSentenceId(filename, index) {
+	setTimeout(loadPreview(index), 0);
 	var full_translation_id = '#full-translation_' + index;
 	$(full_translation_id).html(snt[index]);
 	$('.end-sentence').each(function(j) {
@@ -36,22 +40,16 @@ function assignEndSentenceIds(filename, index) {
 		$(this).attr("class", my_class);
 		$(this).attr("id", id);
 	});
-	loadPreview(index);
 }
 
 function readTranslation(filename, index) {
-	// console.log(filename);
+	setTimeout(assignEndSentenceId(filename, index), 0);
 	jQuery.get(filename, function(data) {
 		snt.push(data.replace(/([^.!?]*[^.!?\s][.!?]['"]?)(\s|$)/g, 
 	   	'<span class="end-sentence">$1</span>$2'));
-	   	// console.log(index);
-
-	   	// end pane itself is not visible at this point
-	   	// console.log(snt);
 	   	var full_translation = '<div class=\"full-translation\" id=\"full-translation_' + index +'\" style=\"width:100%;border-radius:3px;\"></div>';
 	   	$('#end-pane').append(full_translation);
 	});
-	assignEndSentenceIds(filename, index);
 }
 
 $(document).on('click','.main-text_preview', function() {
