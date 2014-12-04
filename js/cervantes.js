@@ -14,6 +14,10 @@ $(document).ready(function() {
 	}
 });
 
+$('#main-text').on('scroll', function () {
+    $('#end-pane').scrollTop($(this).scrollTop());
+});
+
 function readTranslation(filename, index) {
 	// setTimeout(loadPreview(index), 0);
 	jQuery.get(filename, function(data) {
