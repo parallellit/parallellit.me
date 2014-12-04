@@ -17,7 +17,7 @@ $(document).ready(function() {
 	    $('#end-pane').scrollTop($(this).scrollTop());
 	});
 	
-	$('#main-text').append('<div class="instruction" style="border-radius: 3px; background:#111; color:white; padding: 5px; height: 40px;"><strong style="font-size: 70%; vertical-align: middle;">To get started, pick a main text to examine:</strong><br></div>')
+	$('#main-text').append('<div class="instruction" style="border-radius: 3px; background:#111; color:white; padding: 5px; ">To get started, pick a main text to examine:</div>')
 });
 
 function readTranslation(filename, index) {
