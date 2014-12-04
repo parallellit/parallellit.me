@@ -16,6 +16,7 @@ $(document).ready(function() {
 
 $('#main-text').on('scroll', function () {
     $('#end-pane').scrollTop($(this).scrollTop());
+    console.log('scrolling!');
 });
 
 function readTranslation(filename, index) {
