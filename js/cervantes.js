@@ -12,11 +12,11 @@ $(document).ready(function() {
 	} else {
 		alert('The File APIs are not fully supported by your browser.');
 	}
-});
-
-$('#main-text').on('scroll', function () {
-    $('#end-pane').scrollTop($(this).scrollTop());
-    console.log('scrolling!');
+	
+	$('#main-text').on('scroll', function () {
+	    $('#end-pane').scrollTop($(this).scrollTop());
+	    console.log('scrolling!');
+	});
 });
 
 function readTranslation(filename, index) {
