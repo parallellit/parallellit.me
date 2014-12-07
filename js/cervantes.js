@@ -74,7 +74,7 @@ $(document).on('click','.main-text_preview', function() {
 	});
 });
 
-$(document).on('hover', '.sentence', function() {
+$(document).on('mouseover', '.sentence', function() {
 	$('.sentence').css("background", "transparent"); // clear previously highlighted sentences
 	$(this).css("background", "#F1F1F1"); // highlight the clicked text
 	console.log('hover!');
