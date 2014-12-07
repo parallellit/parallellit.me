@@ -17,7 +17,7 @@ $(document).ready(function() {
 	    $('#end-pane').scrollTop($(this).scrollTop());
 	});
 	
-	// $('#main-text').append('<div class="instruction" style="border: 1px solid; height: 34px; border-radius: 3px; background:#111; color:white; padding: 5px; ">To get started, pick a main text to examine:</div>')
+	$('#main-text').append('<div class="instruction" style="border: 1px solid; border-color: #33CCFF; height: 22px; border-radius: 3px; background:#111; color:white; padding: 5px; ">To get started, pick a main text to examine:</div>')
 });
 
 function readTranslation(filename, index) {
