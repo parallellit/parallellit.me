@@ -17,7 +17,7 @@ $(document).ready(function() {
 	    $('#end-pane').scrollTop($(this).scrollTop());
 	});
 	
-	$('#main-text').append('<div class="instruction" style="border: 1px solid; border-color: #33CCFF; height: 22px; border-radius: 3px; background:#006699; opacity: 0.5; color:white; padding: 5px; ">To get started, pick a main text to examine:</div>')
+	$('#main-text').append('<div class="instruction" style="border: 1px solid; border-color: #33CCFF; height: 22px; border-radius: 3px; background:#111; opacity: 0.8; color:#33CCFF; padding: 5px; ">To get started, pick a main text to examine:</div>')
 });
 
 function readTranslation(filename, index) {
@@ -72,6 +72,12 @@ $(document).on('click','.main-text_preview', function() {
 		$(this).attr("id", id);
 		// console.log('MY ID: ' + $(this).attr("id"));
 	});
+});
+
+$(document).on('hover', '.sentence', function() {
+	$('.sentence').css("background", "transparent"); // clear previously highlighted sentences
+	$(this).css("background", "#F1F1F1"); // highlight the clicked text
+	console.log('hover!');
 });
 
 $(document).on('click','.sentence', function() {
