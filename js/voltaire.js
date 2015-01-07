@@ -12,6 +12,12 @@ $(document).ready(function() {
 	} else {
 		alert('The File APIs are not fully supported by your browser.');
 	}
+	
+	$('#main-text').on('scroll', function () {
+	    $('#end-pane').scrollTop($(this).scrollTop());
+	});
+	
+	$('#main-text').append('<div class="instruction" style="border: 1px solid; border-color: #33CCFF; height: 22px; border-radius: 3px; background:#111; opacity: 0.8; color:#33CCFF; padding: 5px; ">To get started, pick a main text to examine:</div>')
 });
 
 function readTranslation(filename, index) {
@@ -27,11 +33,10 @@ function readTranslation(filename, index) {
 	   	// console.log('#end-pane: ' + $('#end-pane').html());
 	}).done(function(e) {
 		console.log('FILL full_translation(' + index + ')');
-		
 		var full_translation_id = '#full-translation_' + index;
 		$(full_translation_id).html(snt[index]);
 	}).done(function(e) {
-		console.log('UPD end-sentence (' + index + ')');
+		console.log('update/d end-sentence (' + index + ')');
 		
 		$('.end-sentence').each(function(j) {
 			if (j == 0) {
@@ -67,6 +72,12 @@ $(document).on('click','.main-text_preview', function() {
 		$(this).attr("id", id);
 		// console.log('MY ID: ' + $(this).attr("id"));
 	});
+});
+
+$(document).on('mouseover', '.sentence', function() {
+	$('.sentence').css("background", "transparent"); // clear previously highlighted sentences
+	$(this).css("background", "#F1F1F1"); // highlight the clicked text
+	console.log('hover!');
 });
 
 $(document).on('click','.sentence', function() {
